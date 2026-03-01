@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Babibon Cafe</title>
+
+<style>
+/* ----------------------
+   Design System
+----------------------- */
+
+:root {
+  --bg-dark: #2b1d17;
+  --bg-light: #f6f1ea;
+  --accent: #c67c4e;
+  --accent-soft: #e8c3a3;
+  --text-dark: #2a2a2a;
+  --text-light: #ffffff;
+
+  --font-title: "Georgia", serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+
+  --space: 1rem;
+  --radius: 12px;
+}
+
+/* ----------------------
+   Base Styles (Mobile First)
+----------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  max-width: 65ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ----------------------
+   Header
+----------------------- */
+
+header {
+  background: linear-gradient(
+      rgba(43, 29, 23, 0.85),
+      rgba(43, 29, 23, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  padding: 2rem 1rem;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent-soft);
+}
+
+/* ----------------------
+   Sections
+----------------------- */
+
+main {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+/* ----------------------
+   Dish of the Day
+----------------------- */
+
+.dish {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.dish-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dish figcaption {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ----------------------
+   Menu
+----------------------- */
+
+.menu-category {
+  margin-bottom: 2rem;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+dd {
+  margin: 0 0 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ----------------------
+   Contact
+----------------------- */
+
+.contact {
+  background: var(--accent-soft);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+/* ----------------------
+   Footer
+----------------------- */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+/* ----------------------
+   Responsive Layout
+----------------------- */
+
+@media (min-width: 768px) {
+
+  .dish-content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu-grid {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .menu-category {
+    flex: 1;
+    background: #fff;
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  }
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Babibon Cafe</div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#dish">Dish of the Day</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Dish of the Day -->
+  <section id="dish" class="dish">
+    <h2>Dish of the Day</h2>
+
+    <article class="dish-content">
+      <figure>
+        <img 
+          src="data:image/jpeg;base64,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" 
+          alt="Creamy pumpkin soup topped with roasted seeds and fresh herbs in a rustic ceramic bowl">
+        <figcaption>Warm, creamy, perfect with sourdough bread.</figcaption>
+      </figure>
+
+      <div>
+        <h3>Pumpkin & Thyme Soup</h3>
+        <p>
+          Slow-roasted pumpkin blended with caramelized onions and fresh thyme.
+          Served with toasted sourdough and whipped herb butter.
+        </p>
+        <p><strong>$9.50</strong></p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu">
+    <h2>Menu</h2>
+
+    <div class="menu-grid">
+
+      <article class="menu-category">
+        <h3>Breakfast</h3>
+        <dl>
+          <dt>Avocado Toast <span>$8</span></dt>
+          <dd>Smashed avocado, chili flakes, lemon, sourdough.</dd>
+
+          <dt>Granola Bowl <span>$7</span></dt>
+          <dd>House granola, Greek yogurt, seasonal berries.</dd>
+
+          <dt>Butter Croissant <span>$3.5</span></dt>
+          <dd>Flaky, golden, baked fresh every morning.</dd>
+        </dl>
+      </article>
+
+      <article class="menu-category">
+        <h3>Lunch</h3>
+        <dl>
+          <dt>Roasted Veggie Sandwich <span>$10</span></dt>
+          <dd>Grilled vegetables, hummus, arugula, ciabatta.</dd>
+
+          <dt>Tomato Burrata Salad <span>$11</span></dt>
+          <dd>Heirloom tomatoes, burrata, basil oil.</dd>
+
+          <dt>Quiche of the Day <span>$9</span></dt>
+          <dd>Ask us for today’s fresh-baked selection.</dd>
+        </dl>
+      </article>
+
+      <article class="menu-category">
+        <h3>Drinks</h3>
+        <dl>
+          <dt>Espresso <span>$2.5</span></dt>
+          <dd>Rich, intense, single-origin beans.</dd>
+
+          <dt>Cappuccino <span>$4</span></dt>
+          <dd>Espresso with velvety steamed milk foam.</dd>
+
+          <dt>Chai Latte <span>$4.5</span></dt>
+          <dd>Spiced black tea with creamy oat milk.</dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+
+    <address>
+      Babibon Sector<br>
+      123 Babibon Street<br>
+      Babibonland, BB<br><br>
+
+      Phone: <a href="tel:+47 00 00 000">+47 00 00 000</a><br>
+      Email: <a href="idkwhattoputhere@gmail.com">idkwhattoputhere@gmail.com</a>
+    </address>
+
+    <h3>Opening Hours</h3>
+    <p>
+      Mon–Fri: 7:00–18:00<br>
+      Sat–Sun: 8:00–16:00
+    </p>
+  </section>
+
+</main>
+
+</body>
+</html>
